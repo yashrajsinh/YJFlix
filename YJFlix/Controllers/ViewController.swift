@@ -5,27 +5,107 @@
 //  Created by Yashraj on 09/02/26.
 //
 
-import UIKit
-import UIKit
+import FirebaseAuth
 import FirebaseCore
-
+import UIKit
 
 class ViewController: UIViewController {
 
-    // FB token = V9lpZcCoAoR5UUkq29zqLDU5YGa2
+    //UI: Textfields
+    @IBOutlet weak var txtEmail: UITextField!
+    @IBOutlet weak var txtPassword: UITextField!
+
+    //Spinner
+    var spinner: UIActivityIndicatorView!
+    var overlayView: UIView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-            
+
         //Firebase configure
         FirebaseApp.configure()
-        // Do any additional setup after loading the view.
+
+        //Add Spinner
+        setupSpinner()
     }
 
     @IBAction func btnLogIn(_ sender: UIButton) {
-        
-            gotoMainScreen()
+        let email = txtEmail.text! ?? ""
+        let password = txtPassword.text! ?? ""
+
+        if email.isEmpty || password.isEmpty {
+            toast("Please fill all the fields")
+            return
+        }
+        showSpinner()
+        view.isUserInteractionEnabled = false  //bloacks user taps
+        //Fireabse method for validation
+        Auth.auth().signIn(withEmail: email, password: password) {
+            result,
+            error in
+            if let error = error {
+                self.hideSpinner()
+                self.toast("Log in failed " + error.localizedDescription)
+                return
+            }
+            self.gotoMainScreen()
+        }
+
     }
-    
+
+    //MARK: Func Spinner with animation
+    func setupSpinner() {
+        overlayView = UIView(frame: view.bounds)
+        overlayView.backgroundColor = UIColor.black.withAlphaComponent(0.4)
+        overlayView.isHidden = true
+
+        spinner = UIActivityIndicatorView(style: .large)
+        spinner.center = overlayView.center
+        spinner.color = .white
+
+        overlayView.addSubview(spinner)
+        view.addSubview(overlayView)
+    }
+
+    func showSpinner() {
+        overlayView.isHidden = false
+        spinner.isUserInteractionEnabled = false
+        spinner.startAnimating()
+    }
+
+    func hideSpinner() {
+        spinner.stopAnimating()
+        spinner.isUserInteractionEnabled = true
+        overlayView.isHidden = true
+    }
+
+    //MARK: Custom Toast message
+    func toast(_ msg: String) {
+        let lbl = UILabel(
+            frame: CGRect(
+                x: 40,
+                y: view.frame.height - 120,
+                width: view.frame.width - 80,
+                height: 40
+            )
+        )
+        lbl.text = msg
+        lbl.textAlignment = .center
+        lbl.backgroundColor = .black.withAlphaComponent(0.7)
+        lbl.textColor = .white
+        lbl.layer.cornerRadius = 10
+        lbl.clipsToBounds = true
+        lbl.alpha = 0
+        view.addSubview(lbl)
+
+        UIView.animate(withDuration: 0.3) { lbl.alpha = 1 }
+        UIView.animate(withDuration: 0.3, delay: 2) {
+            lbl.alpha = 0
+        } completion: { _ in
+            lbl.removeFromSuperview()
+        }
+    }
+
     //MARK: Func to add tabbar on home VC
     func gotoMainScreen() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
