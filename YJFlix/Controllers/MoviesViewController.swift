@@ -1,5 +1,5 @@
 //
-//  ProfileViewController.swift
+//  MoviesViewController.swift
 //  YJFlix
 //
 //  Created by Yashraj on 09/02/26.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController {
+class MoviesViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
