@@ -19,14 +19,32 @@ class ViewController: UIViewController {
     var spinner: UIActivityIndicatorView!
     var overlayView: UIView!
 
+    //for auto log in user
+    var authListener: AuthStateDidChangeListenerHandle?
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        //Firebase configure
-        FirebaseApp.configure()
-
         //Add Spinner
         setupSpinner()
+
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        authListener = Auth.auth().addStateDidChangeListener { auth, user in
+            if user != nil {
+                self.gotoMainScreen()
+            }
+        }
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        if let listener = authListener {
+            Auth.auth().removeStateDidChangeListener(listener)
+        }
     }
 
     @IBAction func btnLogIn(_ sender: UIButton) {

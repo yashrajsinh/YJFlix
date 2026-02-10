@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -24,6 +25,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
 
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        FirebaseApp.configure()   // Firebase Singleton ONLY HERE
 
         let loginVC =
             storyboard.instantiateViewController(

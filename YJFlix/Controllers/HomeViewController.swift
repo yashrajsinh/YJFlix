@@ -13,17 +13,11 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if let user = Auth.auth().currentUser {
-            print("User logged in ")
-            print("UID : ", user.uid)
-            print("Email : ", user.email)
-        }
-
-        Auth.auth().currentUser?.getIDToken { token, error in
-            if let token = token {
-                print("JWT:", token)
-            }
-        }
+        //        if let user = Auth.auth().currentUser {
+        //            print("User logged in ")
+        //            print("UID : ", user.uid)
+        //            print("Email : ", user.email)
+        //        }
 
     }
 
