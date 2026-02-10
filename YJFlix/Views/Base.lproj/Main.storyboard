@@ -282,7 +282,48 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dtH-ga-Gst" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3191.0447761194027" y="129.7482837528604"/>
+            <point key="canvasLocation" x="3999" y="130"/>
+        </scene>
+        <!--Details View Controller-->
+        <scene sceneID="yTT-Dx-4E7">
+            <objects>
+                <viewController storyboardIdentifier="DetailsVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="0KO-XX-s9r" customClass="DetailsViewController" customModule="YJFlix" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="n4b-if-hzP">
+                        <rect key="frame" x="0.0" y="0.0" width="402" height="874"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="u7f-9O-UJT">
+                                <rect key="frame" x="0.0" y="124" width="402" height="682"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gl6-WD-GG6">
+                                        <rect key="frame" x="0.0" y="0.0" width="402" height="660.33333333333337"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NqZ-Lh-FAm">
+                                        <rect key="frame" x="0.0" y="660.33333333333337" width="402" height="21.666666666666629"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.60352339219138362" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ZZ1-Tk-jGD"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ZZ1-Tk-jGD" firstAttribute="trailing" secondItem="u7f-9O-UJT" secondAttribute="trailing" id="Bjf-bO-Gd9"/>
+                            <constraint firstItem="u7f-9O-UJT" firstAttribute="leading" secondItem="ZZ1-Tk-jGD" secondAttribute="leading" id="SHs-LV-v2E"/>
+                            <constraint firstItem="u7f-9O-UJT" firstAttribute="top" secondItem="ZZ1-Tk-jGD" secondAttribute="top" id="kw6-Ae-Hty"/>
+                            <constraint firstItem="ZZ1-Tk-jGD" firstAttribute="bottom" secondItem="u7f-9O-UJT" secondAttribute="bottom" id="tW9-K8-VDQ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imgMoviePoster" destination="gl6-WD-GG6" id="0zb-En-leO"/>
+                        <outlet property="lblMovieDesc" destination="NqZ-Lh-FAm" id="AaG-Zu-aCs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4pf-eC-uB9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3233" y="130"/>
         </scene>
     </scenes>
     <resources>

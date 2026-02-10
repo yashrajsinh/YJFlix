@@ -16,23 +16,26 @@
                 <rect key="frame" x="0.0" y="0.0" width="417" height="205"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="HLP-G2-RBT">
+                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="HLP-G2-RBT">
                         <rect key="frame" x="0.0" y="0.0" width="417" height="205"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sho-eA-3qR">
-                                <rect key="frame" x="8" y="8" width="198" height="189"/>
+                                <rect key="frame" x="8" y="8" width="195.66666666666666" height="189"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="sho-eA-3qR" secondAttribute="height" multiplier="2:3" constant="1.5" id="0D2-dd-grr"/>
+                                </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="hc6-ph-eWY">
-                                <rect key="frame" x="211" y="8" width="198" height="189"/>
+                                <rect key="frame" x="213.66666666666663" y="8" width="195.33333333333337" height="189"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="htI-1E-Zw6">
-                                        <rect key="frame" x="0.0" y="0.0" width="198" height="112.66666666666667"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="195.33333333333334" height="112.66666666666667"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZTR-I0-0jM">
-                                        <rect key="frame" x="0.0" y="112.66666666666669" width="198" height="76.333333333333314"/>
+                                        <rect key="frame" x="0.0" y="112.66666666666669" width="195.33333333333334" height="76.333333333333314"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
