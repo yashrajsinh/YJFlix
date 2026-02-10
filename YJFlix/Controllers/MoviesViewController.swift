@@ -50,6 +50,9 @@ class MoviesViewController: UIViewController {
     func setupTable() {
         tblMoviesList.dataSource = self
         tblMoviesList.delegate = self
+        
+        tblMoviesList.rowHeight = UITableView.automaticDimension
+    
         tblMoviesList.register(
             UINib(nibName: "MoviesTableViewCell", bundle: nil),
             forCellReuseIdentifier: "MovieCell"
@@ -67,6 +70,18 @@ extension MoviesViewController: UITableViewDelegate, UITableViewDataSource {
         if indexPath.row == shows.count - 3 {
             getMovieList()
         }
+    }
+    func tableView(
+        _ tableView: UITableView,
+        didSelectRowAt indexPath: IndexPath
+    ) {
+        let selectedMovie = shows[indexPath.row]
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let detailVC =
+            storyboard.instantiateViewController(withIdentifier: "DetailsVC")
+            as! DetailsViewController
+        detailVC.show = selectedMovie
+        navigationController?.pushViewController(detailVC, animated: true)
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int)
